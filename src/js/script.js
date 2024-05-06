@@ -92,6 +92,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
     initAccordion() {
@@ -161,8 +162,14 @@
           const option = param.options[optionId];
           console.log(optionId, option);
 
-          //check if there is param with a name of paramId in formData and if it includes optionId //
-          if (formData[paramId] && formData[paramId].includes(optionId)) {
+          // Check if the current option is selected //
+          const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+
+          // find the corresponding image for the option //
+          const optionImage = thisProduct.imageWrapper.querySelector(`.${paramId}-${optionId}`);
+
+          // check if there is param with a name of paramId in formData and if it includes optionId //
+          if (optionSelected) {
 
             //check if the option is not default//
             if (!option.default) {
@@ -170,11 +177,29 @@
               // add option price to price variable //
               price += option.price;
             }
+
+            // activate the image for the selected option. LEFT FOR STUDY//
+            //if (optionImage) optionImage.classList.add(classNames.menuProduct.imageVisible);//
+
           } else {
+
             // check if the option is default //
             if (option.default) {
+
               // reduce price variable
               price -= option.price
+            }
+
+            // deactivate the image if the option is not selected. LEFT FOR STUDY//
+            //if (optionImage) optionImage.classList.remove(classNames.menuProduct.imageVisible);//
+          }
+
+          // manage image visibility based on selection //
+          if (optionImage) {
+            if (optionSelected) {
+              optionImage.classList.add(classNames.menuProduct.imageVisible);
+            } else {
+              optionImage.classList.remove(classNames.menuProduct.imageVisible);
             }
           }
         }
