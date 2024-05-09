@@ -259,7 +259,7 @@
           thisWidget.announce();
         }
       } else {
-        thisWidget.input.value = thisWidget.value;
+        thisWidget.input.value = thisWidget.value || settings.amountWidget.defaultValue;
       }
     }
 
