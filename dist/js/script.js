@@ -247,8 +247,12 @@
       // TODO: Add validation //
       // PROBLEM ? //
       if (!isNaN(newValue)) {
-        if (thisWidget.value !== newValue) {
-          thisWidget.value = newValue;
+        if (newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
+          if (thisWidget.value !== newValue) {
+            thisWidget.value = newValue;
+            thisWidget.input.value = thisWidget.value;
+          }
+        } else {
           thisWidget.input.value = thisWidget.value;
         }
       } else {
