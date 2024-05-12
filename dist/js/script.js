@@ -420,7 +420,7 @@
 
       thisCart.dom.productList.appendChild(generatedDOM);
 
-      thisCart.products.push(menuProduct);
+      thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
       console.log('thisCart.product', thisCart.products);
     }
   }
@@ -439,7 +439,7 @@
       console.log('CartProduct created:', thisCartProduct);
     }
 
-    getElements() {
+    getElements(element) {
       const thisCartProduct = this;
 
       thisCartProduct.dom = {};
