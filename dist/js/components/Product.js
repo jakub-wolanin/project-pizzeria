@@ -1,3 +1,7 @@
+import { select, classNames, templates } from '../settings.js';
+import utils from '../utils.js';
+import AmountWidget from './AmountWidget.js';
+
 class Product {
   constructor(id, data) {
     const thisProduct = this;
@@ -23,6 +27,8 @@ class Product {
     const generatedHTML = templates.menuProduct(thisProduct.data);
 
     // create element using utils.createElementFromHTML //
+    thisProduct.dom = {};
+
     thisProduct.dom.element = utils.createDOMFromHTML(generatedHTML); // Dodanie elementu do obiektu dom
 
     // find menu container //
@@ -42,6 +48,7 @@ class Product {
     thisProduct.dom.priceElem = thisProduct.dom.element.querySelector(select.menuProduct.priceElem);
     thisProduct.dom.imageWrapper = thisProduct.dom.element.querySelector(select.menuProduct.imageWrapper);
     thisProduct.dom.amountWidgetElem = thisProduct.dom.element.querySelector(select.menuProduct.amountWidget);
+
   }
 
   initAccordion() {
@@ -175,9 +182,15 @@ class Product {
   addToCart() {
     const thisProduct = this;
 
-    const productSummary = thisProduct.prepareCartProduct();
-
-    app.cart.add(productSummary);
+    //  app.cart.add(thisProduct.prepareCartProduct());
+    const event = new CustomEvent('add-to-cart', {
+      bubbles: true,
+      detail: {
+        product: thisProduct.prepareCartProduct(),
+      },
+    }
+    );
+    thisProduct.dom.element.dispatchEvent(event);
   }
 
   prepareCartProduct() {
@@ -226,3 +239,5 @@ class Product {
     return params;
   }
 }
+
+export default Product;
