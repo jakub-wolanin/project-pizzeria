@@ -202,63 +202,66 @@
       }
     }
   ],
-  "orders": [
+  "orders": [],
+  "events": [
     {
-      "address": "",
-      "phone": "",
-      "totalPrice": 38,
-      "subtotalPrice": 18,
-      "totalNumber": 2,
-      "deliveryFee": 20,
-      "products": [
-        {
-          "id": "cake",
-          "name": "Zio Stefano's Doughnut",
-          "amount": 2,
-          "price": 18,
-          "priceSingle": 9,
-          "params": {}
-        }
-      ],
-      "id": 1
+      "id": 1,
+      "date": "2024-06-14",
+      "hour": "12:30",
+      "table": 1,
+      "repeat": false,
+      "duration": 4,
+      "ppl": 3,
+      "starters": []
     },
     {
-      "address": "",
-      "phone": "",
-      "totalPrice": 38,
-      "subtotalPrice": 18,
-      "totalNumber": 2,
-      "deliveryFee": 20,
-      "products": [
-        {
-          "id": "cake",
-          "name": "Zio Stefano's Doughnut",
-          "amount": 2,
-          "price": 18,
-          "priceSingle": 9,
-          "params": {}
-        }
-      ],
-      "id": 2
+      "id": 2,
+      "date": "2024-06-14",
+      "hour": "16:00",
+      "table": 3,
+      "repeat": "daily",
+      "duration": 2,
+      "ppl": 3,
+      "starters": [
+        "bread",
+        "lemonWater"
+      ]
     },
     {
-      "address": "34r43",
-      "phone": "f3f3",
-      "totalPrice": 29,
-      "subtotalPrice": 9,
-      "totalNumber": 1,
-      "deliveryFee": 20,
-      "products": [
-        {
-          "id": "cake",
-          "name": "Zio Stefano's Doughnut",
-          "amount": 1,
-          "price": 9,
-          "priceSingle": 9,
-          "params": {}
-        }
-      ],
-      "id": 3
+      "id": 3,
+      "date": "2024-06-14",
+      "hour": "12:00",
+      "table": 3,
+      "repeat": "daily",
+      "duration": 2,
+      "ppl": 3,
+      "starters": [
+        "bread",
+        "lemonWater"
+      ]
+    },
+    {
+      "id": 4,
+      "date": "2024-06-14",
+      "hour": "13:00",
+      "table": 2,
+      "repeat": "daily",
+      "duration": 4,
+      "ppl": 3,
+      "starters": []
+    },
+    {
+      "id": 5,
+      "date": "2024-06-14",
+      "hour": "18:00",
+      "table": 2,
+      "repeat": "daily",
+      "duration": 2,
+      "ppl": 3,
+      "starters": [
+        "lemonWater"
+      ]
     }
-  ]
+  ],
+  "bookings": []
 }
