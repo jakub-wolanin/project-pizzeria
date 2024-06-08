@@ -202,7 +202,18 @@
       }
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "address": "",
+      "phone": "",
+      "totalPrice": 0,
+      "subtotalPrice": 0,
+      "totalNumber": 0,
+      "deliveryFee": 0,
+      "products": [],
+      "id": 1
+    }
+  ],
   "events": [
     {
       "id": 1,
