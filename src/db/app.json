@@ -206,7 +206,7 @@
   "events": [
     {
       "id": 1,
-      "date": "2024-06-14",
+      "date": "2024-06-16",
       "hour": "12:30",
       "table": 1,
       "repeat": false,
@@ -263,5 +263,17 @@
       ]
     }
   ],
-  "bookings": []
+  "bookings": [
+    {
+      "id": 5,
+      "date": "2024-06-16",
+      "hour": "18:00",
+      "table": 1,
+      "duration": 4,
+      "ppl": 4,
+      "starters": [
+        "water"
+      ]
+    }
+  ]
 }
