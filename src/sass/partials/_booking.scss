@@ -193,6 +193,11 @@
       top: 180px;
     }
   }
+
+  .table.selected {
+    background-color: #78E08F;
+  }
+  
   
   .booking-options {
     @include flex(row, flex-start, space-between);

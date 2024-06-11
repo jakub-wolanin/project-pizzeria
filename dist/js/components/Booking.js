@@ -8,6 +8,8 @@ class Booking {
   constructor(element) {
     const thisBooking = this;
 
+    thisBooking.selectedTable = null;
+
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
@@ -151,6 +153,13 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
+    if (thisBooking.selectedTable) {
+      const selectedTableElement = thisBooking.dom.wrapper.querySelector('.table.selected');
+      if (selectedTableElement) {
+        selectedTableElement.classList.remove('selected');
+      }
+      thisBooking.selectedTable = null;
+    }
   }
 
   render(element) {
@@ -167,6 +176,37 @@ class Booking {
     thisBooking.dom.datePicker = thisBooking.dom.wrapper.querySelector(select.widgets.datePicker.wrapper);
     thisBooking.dom.hourPicker = thisBooking.dom.wrapper.querySelector(select.widgets.hourPicker.wrapper);
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
+  }
+
+  initTables() {
+    const thisBooking = this;
+
+    thisBooking.dom.wrapper.addEventListener('click', function(event) {
+      const clickedElement = event.target;
+
+      if (clickedElement.classList.contains('table')) {
+        const tableId = clickedElement.getAttribute(settings.booking.tableIdAttribute);
+
+        if (clickedElement.classList.contains(classNames.booking.tableBooked)) {
+          alert('The table is booked!');
+          return;
+        }
+
+        if (thisBooking.selectedTable === tableId) {
+          clickedElement.classList.remove('selected');
+          thisBooking.selectedTable = null;
+        } else {
+          if (thisBooking.selectedTable) {
+            const previousSelectedTable = thisBooking.dom.wrapper.querySelector('.table.selected');
+            if (previousSelectedTable) {
+              previousSelectedTable.classList.remove('selected');
+            }
+          }
+          clickedElement.classList.add('selected');
+          thisBooking.selectedTable = tableId;
+        }
+      }
+    });
   }
 
   initWidgets() {
@@ -190,6 +230,8 @@ class Booking {
     thisBooking.dom.hourPicker.addEventListener('updated', function () {
       thisBooking.updateDom();
     });
+
+    thisBooking.initTables();
   }
 }
 
