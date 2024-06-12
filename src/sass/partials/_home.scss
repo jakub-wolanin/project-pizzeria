@@ -1,0 +1,144 @@
+// _home.scss
+
+.home-content {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie boksów */
+    margin-bottom: 5px;
+  }
+  
+  .box {
+    position: relative;
+    width: 300px; /* Ustal szerokość boksów na 300 pikseli */
+    height: 120px; /* Ustal wysokość boksów na 200 pikseli */
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s;
+    margin: 0 2.5px; /* Ustaw marginesy po bokach */
+  
+    .home-image {
+      width: 100%; /* Ustal szerokość obrazków na 100% szerokości boksu */
+      height: 100%; /* Ustal wysokość obrazków na 100% wysokości boksu */
+      object-fit: cover; /* Dopasowanie obrazka do kontenera */
+      display: block;
+    }
+  
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      transition: transform 0.5s ease-in-out;
+      white-space: nowrap;
+    }
+  
+    &:hover span {
+        transform: translate(-50%, -60%); /* Podnieś napis do góry na hover */
+      }
+  }
+  
+  .opening-hours {
+    background-color: #ff6f61;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 600px; /* Ustal szerokość na 600 pikseli */
+    height: 120px;
+    margin: 5px auto; /* Dodaj odstęp między blokami i wyśrodkuj poziomo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h3 {
+        font-size: 20px; /* Ustal rozmiar czcionki nagłówka na 20px */
+        margin: 0 0 18px 0;
+      }
+    
+      p {
+        font-size: 15px; /* Ustal rozmiar czcionki tekstu na 5px */
+        margin: 0;
+      }
+  }
+  
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px; /* Maksymalna szerokość karuzeli */
+    margin: 45px auto; /* Wyśrodkowanie karuzeli na stronie */
+    height: 240px; /* Ustalona wysokość karuzeli */
+    
+    .carousel-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start; /* Wyśrodkowanie poziome zawartości */
+      align-items: center;
+      opacity: 0;
+      transition: opacity 1s;
+      padding-bottom: 40px; /* Padding wokół zawartości */
+  
+      &.active {
+        opacity: 1;
+        position: relative;
+      }
+  
+      img {
+        width: 190px; /* Szerokość obrazka */
+        height: 190px; /* Wysokość obrazka */
+        object-fit: cover; /* Dopasowanie obrazka */
+        margin-right: 20px; /* Odstęp między obrazkiem a tekstem */
+      }
+  
+      .testimonial-text {
+        text-align: left;
+        max-width: calc(100% - 210px); /* Maksymalna szerokość tekstu, uwzględniająca obrazek i margines */
+        color: #333;
+        
+        h3 {
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+  
+        p {
+          font-size: 15px;
+          margin-bottom: 10px;
+        }
+  
+        .author {
+          font-size: 0.9rem;
+          font-style: italic;
+        }
+      }
+    }
+  
+    .carousel-indicators {
+      position: absolute;
+      bottom: 10px; /* Pozycja kropek */
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      gap: 10px; /* Odstęp między kropkami */
+  
+      .indicator {
+        width: 10px;
+        height: 10px;
+        background-color: #ccc;
+        border-radius: 50%;
+        cursor: pointer;
+  
+        &.active {
+          background-color: #333;
+        }
+      }
+    }
+  }
+  

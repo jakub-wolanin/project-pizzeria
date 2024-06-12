@@ -2,6 +2,7 @@ import { settings, select, classNames, templates } from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
+import Home from './components/Home.js';
 
 const app = {
   initPages: function () {
@@ -105,6 +106,30 @@ const app = {
     thisApp.initCart();
     thisApp.initPages();
     thisApp.initBooking();
+    thisApp.initHome();
+  },
+
+  initHome: function () {
+    const thisApp = this;
+    const homeElem = document.querySelector(select.containerOf.home);
+    thisApp.home = new Home(homeElem);
+
+    const orderBox = homeElem.querySelector('#order-box');
+    const bookingBox = homeElem.querySelector('#booking-box');
+
+    if (orderBox) {
+      orderBox.addEventListener('click', () => {
+        thisApp.activatePages('order');
+        window.location.hash = '#/order';
+      });
+    }
+
+    if (bookingBox) {
+      bookingBox.addEventListener('click', () => {
+        thisApp.activatePages('booking');
+        window.location.hash = '#/booking';
+      });
+    }
   },
 
   initCart: function () {

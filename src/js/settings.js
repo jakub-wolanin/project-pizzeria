@@ -3,8 +3,10 @@ export const select = {
     menuProduct: '#template-menu-product',
     cartProduct: '#template-cart-product', // CODE ADDED
     bookingWidget: '#template-booking-widget', // CODE MODIFIED
+    homeWidget: '#template-home-widget',
   },
   containerOf: {
+    home: '#home',
     menu: '#product-list',
     cart: '#cart',
     pages: '#pages', // CODE MODIFIED
@@ -14,6 +16,9 @@ export const select = {
     menuProducts: '#product-list > .product',
     menuProductsActive: '#product-list > .product.active',
     formInputs: 'input, select',
+  },
+  home: {
+    carousel: '.carousel',  // Dodaj ten selektor
   },
   menuProduct: {
     clickable: '.product__header',
@@ -123,4 +128,5 @@ export const templates = {
   menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
   cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML), // CODE ADDED
   bookingWidget: Handlebars.compile(document.querySelector(select.templateOf.bookingWidget).innerHTML), // CODE MODIFIED
+  homeWidget: Handlebars.compile(document.querySelector(select.templateOf.homeWidget).innerHTML),
 };
