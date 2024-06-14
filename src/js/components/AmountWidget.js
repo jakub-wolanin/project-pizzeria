@@ -28,7 +28,7 @@ class AmountWidget extends BaseWidget {
       && value <= settings.amountWidget.defaultMax;
   }
 
-  renderValue() {
+  renderValue(){
     const thisWidget = this;
 
     thisWidget.dom.input.value = thisWidget.value;
@@ -38,8 +38,8 @@ class AmountWidget extends BaseWidget {
     const thisWidget = this;
 
     thisWidget.dom.input.addEventListener('change', function () {
-      // thisWidget.setValue(thisWidget.dom.input.value);
-      thisWidget.value = thisWidget.dom.input.value;
+     // thisWidget.setValue(thisWidget.dom.input.value);
+     thisWidget.value = thisWidget.dom.input
     });
 
     thisWidget.dom.linkDecrease.addEventListener('click', function (event) {

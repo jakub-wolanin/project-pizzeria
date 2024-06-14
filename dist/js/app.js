@@ -15,10 +15,14 @@ const app = {
 
     let pageMatchingHash = thisApp.pages[0].id;
 
-    for (let page of thisApp.pages) {
-      if (page.id == idFromHash) {
-        pageMatchingHash = page.id;
-        break;
+    if (!idFromHash || idFromHash === '') {
+      pageMatchingHash = 'home';
+    } else {
+      for (let page of thisApp.pages) {
+        if (page.id == idFromHash) {
+          pageMatchingHash = page.id;
+          break;
+        }
       }
     }
 

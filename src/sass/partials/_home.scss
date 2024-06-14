@@ -164,54 +164,54 @@
     gap: 10px;
     justify-content: center;
     margin-bottom: 40px;
+  }
 
-    .gallery-item {
-      position: relative;
-      width: 190px;
-      height: 190px;
-      overflow: hidden;
-      transition: transform 0.3s;
+  .gallery-item {
+    position: relative;
+    width: 190px;
+    height: 190px;
+    overflow: hidden;
+    transition: transform 0.3s;
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-      .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s;
-        gap: 15px;
-      }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      gap: 15px;
+    }
 
-      .overlay i {
-        color: white;
-        font-size: 0;
-        transition: color 0.3s, transform 0.3s, font-size 0.3s;
-        transform: scale(0.5);
-      }
+    .overlay i {
+      color: white;
+      font-size: 0;
+      transition: color 0.3s, transform 0.3s, font-size 0.3s;
+      transform: scale(0.5);
+    }
 
-      .gallery-item:hover .overlay {
-        opacity: 1;
-      }
+    &:hover .overlay {
+      opacity: 1;
 
-      .gallery-item:hover .overlay i {
+      i {
         font-size: 24px;
         transform: scale(1);
       }
+    }
 
-      .overlay i:hover {
-        color: #ff6f61;
-      }
+    .overlay i:hover {
+      color: #ff6f61;
     }
   }
 
