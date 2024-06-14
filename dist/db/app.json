@@ -274,17 +274,6 @@
       "starters": [
         "water"
       ]
-    },
-    {
-      "date": "2024-06-11",
-      "hour": "12:00",
-      "table": 1,
-      "duration": 1,
-      "ppl": 1,
-      "starters": [],
-      "phone": "",
-      "address": "",
-      "id": 6
     }
   ]
 }

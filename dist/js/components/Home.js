@@ -10,13 +10,14 @@ class Home {
 
   render(element) {
     const thisHome = this;
-    const generatedHTML = templates.homeWidget(); // Upewnij się, że szablon jest poprawnie używany
+    const generatedHTML = templates.homeWidget();
 
     thisHome.dom = {};
     thisHome.dom.wrapper = element;
     thisHome.dom.wrapper.innerHTML = generatedHTML;
 
     thisHome.dom.carousel = thisHome.dom.wrapper.querySelector(select.home.carousel);
+    thisHome.dom.carouselInner = thisHome.dom.carousel.querySelector('.carousel-inner');
   }
 
   initWidgets() {
@@ -32,10 +33,19 @@ class Home {
     const totalItems = items.length;
 
     function showSlide(index) {
-      items[currentIndex].classList.remove('active');
+      items.forEach((item, i) => {
+        item.classList.remove('previous', 'next', 'active');
+        if (i === index) {
+          item.classList.add('active');
+        } else if (i === (index - 1 + totalItems) % totalItems) {
+          item.classList.add('previous');
+        } else if (i === (index + 1) % totalItems) {
+          item.classList.add('next');
+        }
+      });
+
       indicators[currentIndex].classList.remove('active');
       currentIndex = index;
-      items[currentIndex].classList.add('active');
       indicators[currentIndex].classList.add('active');
     }
 
